@@ -1,0 +1,850 @@
+{# templates/test_page.html.twig #}
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+    <style>
+
+        .page-color {
+            background-color: #f6f6f6;
+        }
+
+        button {
+            border-width: 0;
+            border-style: none;
+            border-image: none;
+        }
+
+        .main-container {
+            margin-top: 110px;
+        }
+
+        .third-column-text {
+            margin-top: 40px;
+            margin-bottom: 37px;
+            line-height: 120%;
+            font-size: 18px;
+            font-family: Manrope-Medium;
+        }
+
+        .third-column-button-container {
+            border: solid #949599 1px;
+        }
+
+        .third-column-button {
+            font-family: Manrope-Light;
+            font-size: 16px;
+            padding-bottom: 16px;
+            padding-top: 16px;
+            background-color: #f6f6f6;
+        }
+
+        .third-column-button-svg {
+            margin-left: 25px;
+        }
+
+        .block-name-container {
+            background-color: #f6f6f6;
+            padding-top: 110px;
+            padding-bottom: 110px;
+            width: 1160px;
+            color: #949599;
+            font-family: Manrope-SemiBold;
+            font-size: 24px;
+        }
+
+        .block-name-container :before {
+            content: '';
+            display: inline-block;
+            vertical-align: middle;
+            box-sizing: border-box;
+            width: 100%;
+            height: 1px;
+            background: #949599;
+            border: solid #f6f6f6;
+            border-width: 0 10px;
+            margin-left: -100%;
+        }
+
+        .about-container-big-text {
+            line-height: 120%;
+            font-family: Manrope-Bold;
+            font-size: 63px;
+            margin-bottom: 40px;
+        }
+
+        .about-container-small-text {
+            line-height: 120%;
+            font-family: Manrope-Regular;
+            font-size: 18px;
+            border: solid 1px #949599;
+            padding: 25px 25px 24px 25px;
+        }
+
+        .about-whitespace {
+            height: 151px;
+            margin-bottom: 40px;
+        }
+
+        .about-button {
+            font-family: Manrope-Light;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 40px;
+            padding-top: 16px;
+            padding-bottom: 16px;
+            background-color: #f6f6f6;
+            border: solid 1px #0C0C0C;
+        }
+
+        .advantage-container {
+            border: 1px solid #949599;
+        }
+
+        .advantage-number {
+            font-family: Manrope-ExtraBold;
+            font-size: 14px;
+            color: #949599;
+            margin: 25px 0 169px 25px;
+        }
+
+        .advantage-big-text {
+            font-family: Manrope-Bold;
+            font-size: 32px;
+            color: #0C0C0C;
+            margin: 0 0 25px 25px;
+        }
+
+        .advantage-small-text {
+            font-family: Manrope-Regular;
+            font-size: 18px;
+            line-height: 120%;
+            color: #0C0C0C;
+            margin: 0 0 45px 25px;
+        }
+
+        .service-container {
+            cursor: pointer;
+            border-top: 1px solid #949599;
+            user-select: none;
+        }
+
+        .service-container-number {
+            font-family: Manrope-ExtraBold;
+            font-size: 16px;
+            color: #949599;
+            margin-top: 27px;
+            margin-bottom: 27px;
+        }
+
+        .service-container-name {
+            font-family: Manrope-SemiBold;
+            font-size: 24px;
+            color: #0C0C0C;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .service-container-svg {
+            margin-top: 35px;
+            margin-bottom: 35px;
+        }
+
+        .service-container-svg.active {
+            transform: rotate(180deg);
+            transition-duration: 250ms;
+        }
+
+        .service-container-description {
+            display: none;
+            border-top: 1px solid #949599;
+        }
+
+        .service-container-description-text {
+            font-family: Manrope-Regular;
+            font-size: 18px;
+            line-height: 120%;
+            margin: 40px 0 40px 200px;
+        }
+
+        .provider-bottom-margin {
+            margin-top: 86.5px;
+        }
+
+        .provider-container-name {
+            font-family: Manrope-Bold;
+            font-size: 63px;
+            color: #0C0C0C;
+            margin-bottom: 0;
+        }
+
+        .provider-container-number {
+            font-family: Manrope-ExtraBold;
+            font-size: 14px;
+            color: #949599;
+            margin-top: 52.5px;
+            margin-bottom: 16px;
+        }
+
+        .provider-container-line {
+            height: 71px;
+            border-bottom: 1px solid #949599;
+        }
+
+        .provider-container-small-text {
+            line-height: 120%;
+            font-family: Manrope-Regular;
+            font-size: 18px;
+            border: solid 1px #949599;
+            padding: 25px 25px 24px 25px;
+            margin-bottom: 0px;
+        }
+
+        .provider-more-button {
+            font-family: Manrope-Light;
+            font-size: 16px;
+            padding-bottom: 16px;
+            padding-top: 16px;
+            background-color: #f6f6f6;
+            border: 1px solid #0C0C0C;
+            margin-top: 198px;
+        }
+
+        .form-background {
+            background-image: url("{{ 'build/images/main_page_form_background_img.png' }}");
+            background-repeat: no-repeat;
+        }
+
+        .form-container {
+            margin-top: 110px;
+            background-color: #f6f6f6;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .form-big-text {
+            font-family: Manrope-Bold;
+            font-size: 63px;
+            line-height: 120%;
+            color: #0C0C0C;
+            margin: 100px 0 0 40px;
+        }
+
+        .form-small-text {
+            font-family: Manrope-Regular;
+            font-size: 18px;
+            line-height: 120%;
+            color: #0C0C0C;
+            margin: 40px 0 0 40px;
+        }
+
+    </style>
+
+    <div class="page-color h-100">
+
+        {% include 'header.html.twig' %}
+
+        <div class="main-container container-fluid row px-0 mx-0">
+            <div class="content-row row p-0 mx-auto">
+                <div class="p-0 col h-100" style="max-width: 160px">
+                    <div class="container h-100 p-0">
+                        <img class="img-fluid" src="{{ asset('build/images/main_first_column_image.svg') }}">
+                    </div>
+                </div>
+                <div class="col h-100" style="max-width: 640px; padding-left: 40px; padding-right: 40px">
+                    <div class="container h-100 p-0">
+                        <img class="img-fluid mx-auto" src="{{ asset('build/images/main_second_column_img.png') }}">
+                    </div>
+                </div>
+                <div class="p-0 col-4 h-100" style="max-width: 360px">
+                    <div class="container h-100 p-0">
+                        <img class="img-fluid mx-auto" src="{{ asset('build/images/main_third_column_text.svg') }}">
+                        <img class="img-fluid mx-auto" style="margin-top: 40px"
+                             src="{{ asset('build/images/main_third_column_image.png') }}">
+                        <p class="third-column-text">
+                            Мы работаем только с надёжными <br> производителями, чтобы гарантировать <br> вам лучшие
+                            результаты.
+                        </p>
+                        <div class="third-column-button-container">
+                            <div class="row mx-auto">
+                                <button class="third-column-button">
+                                    Заказать звонок
+                                    <svg class="third-column-button-svg" width="17" height="16" viewBox="0 0 17 16"
+                                         fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10.6218 7.6395L5.04876 2.3295C4.95577 2.24086 4.83223 2.19141 4.70376 2.19141C4.57528 2.19141 4.45174 2.24086 4.35876 2.3295L4.35276 2.3355C4.30752 2.37847 4.2715 2.4302 4.24689 2.48753C4.22227 2.54487 4.20958 2.60661 4.20958 2.669C4.20958 2.73139 4.22227 2.79314 4.24689 2.85047C4.2715 2.9078 4.30752 2.95953 4.35276 3.0025L9.60076 8.0025L4.35276 13.0005C4.30752 13.0435 4.2715 13.0952 4.24689 13.1525C4.22227 13.2099 4.20958 13.2716 4.20958 13.334C4.20958 13.3964 4.22227 13.4581 4.24689 13.5155C4.2715 13.5728 4.30752 13.6245 4.35276 13.6675L4.35876 13.6735C4.45174 13.7621 4.57528 13.8116 4.70376 13.8116C4.83223 13.8116 4.95577 13.7621 5.04876 13.6735L10.6218 8.3635C10.6708 8.3168 10.7098 8.26064 10.7364 8.19841C10.7631 8.13619 10.7769 8.0692 10.7769 8.0015C10.7769 7.9338 10.7631 7.86681 10.7364 7.80459C10.7098 7.74236 10.6708 7.6862 10.6218 7.6395Z"
+                                              fill="#0C0C0C"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="block-name-container mx-auto">
+            <p class="m-0">
+                О компании
+            </p>
+        </div>
+
+        <div class="about-container container-fluid row px-0 mx-0">
+            <div class="content-row row p-0 mx-auto">
+                <div class="col p-0 h-100" style="max-width: 360px">
+                    <div class="container p-0 h-100">
+                        <div class="about-whitespace w-100">
+                        </div>
+                        <img class="img-fluid mx-auto" src="{{ asset('build/images/about_first_column_img.png') }}">
+
+                        <button class="about-button">
+                            [ID]
+                        </button>
+                    </div>
+                </div>
+                <div class="col h-100" style="max-width: 800px; padding-left: 40px; padding-right: 0">
+                    <div class="container p-0 h-100">
+                        <p class="about-container-big-text">
+                            Премиум качество <br> для ваших проектов
+                        </p>
+                        <p class="about-container-small-text" style="margin-bottom: 40px">
+                            Мы понимаем, что выбор правильной краски — это важный шаг в достижении <br>
+                            идеальной отделки. Именно поэтому наши специалисты помогут вам подобрать <br>
+                            идеальную краску от ведущих производителей.
+                        </p>
+
+                        <div class="row p-0 m-0">
+                            <div class="col p-0 h-100" style="max-width: 360px">
+                                <div class="container p-0 h-100">
+                                    <img class="img-fluid mx-auto"
+                                         src="{{ asset('build/images/about_second_column_image.png') }}">
+                                    <button class="about-button">
+                                        [PARITET]
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="col h-100" style="max-width: 400px; padding-left: 40px; padding-right: 0">
+                                <div class="container p-0 h-100">
+                                    <img class="img-fluid mx-auto"
+                                         src="{{ asset('build/images/about_third_column_image.png') }}">
+                                    <button class="about-button">
+                                        [STÖLZ]
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="about-container-small-text" style="margin-top: 40px">
+                            Мы тесно сотрудничаем с проверенными брендами, чтобы предложить нашим <br>
+                            клиентам широкий ассортимент продукции, отвечающей самым высоким <br>
+                            стандартам.
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="block-name-container mx-auto">
+            <p class="m-0">
+                Преимущества
+            </p>
+        </div>
+
+        <div class="advantages-container container-fluid row px-0 mx-0">
+            <div class="content-row row p-0 mx-auto" style="margin-bottom: 40px">
+                <div class="p-0 col h-100" style="max-width: 600px">
+                    <div class="advantage-container container h-100 p-0" style="border-right: none">
+                        <p class="advantage-number">
+                            [01]
+                        </p>
+                        <p class="advantage-big-text">
+                            Опыт и профессионализм
+                        </p>
+                        <p class="advantage-small-text">
+                            За пять лет активной работы мы накопили много ценного <br>
+                            опыта и готовы продемонстрировать вам свой <br>
+                            профессионализм.
+                        </p>
+                    </div>
+                </div>
+                <div class="p-0 col h-100" style="max-width: 560px">
+                    <div class="container h-100 p-0">
+                        <img class="img-fluid" src="{{ asset('build/images/first_advantage.png') }}">
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-row row p-0 mx-auto" style="margin-bottom: 40px">
+                <div class="p-0 col h-100" style="max-width: 560px">
+                    <div class="container h-100 p-0">
+                        <img class="img-fluid" src="{{ asset('build/images/second_advantage.png') }}">
+                    </div>
+                </div>
+                <div class="p-0 col h-100" style="max-width: 600px">
+                    <div class="advantage-container container h-100 p-0" style="border-left: none">
+                        <p class="advantage-number">
+                            [01]
+                        </p>
+                        <p class="advantage-big-text">
+                            Качество и уникальность
+                        </p>
+                        <p class="advantage-small-text">
+                            Мы гарантируем высокое качество нашей краски <br>
+                            и профессиональное выполнение работ.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-row row p-0 mx-auto">
+                <div class="p-0 col h-100" style="max-width: 600px">
+                    <div class="advantage-container container h-100 p-0" style="border-right: none">
+                        <p class="advantage-number">
+                            [01]
+                        </p>
+                        <p class="advantage-big-text">
+                            Индивидуальный подход
+                        </p>
+                        <p class="advantage-small-text">
+                            Мы ценим каждого клиента и стремимся предоставить <br>
+                            индивидуальный подход к каждому проекту.
+                        </p>
+                    </div>
+                </div>
+                <div class="p-0 col h-100" style="max-width: 560px">
+                    <div class="container h-100 p-0">
+                        <img class="img-fluid" src="{{ asset('build/images/third_advantage.png') }}">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="block-name-container mx-auto">
+            <p class="m-0">
+                Услуги
+            </p>
+        </div>
+
+        <div class="services-container container-fluid row mx-0 px-0">
+            <div class="content-row row p-0 mx-auto">
+                <div class="col p-0 h-100" style="max-width: 400px">
+                    <div class="container p-0 h-100">
+
+                    </div>
+                </div>
+                <div class="col p-0 h-100" style="max-width: 760px">
+                    <div class="container p-0 h-100">
+                        <div class="service-container row p-0 m-0" onclick="advantageDescription1()">
+                            <div class="col p-0 h-100" style="max-width: 200px">
+                                <p class="service-container-number">
+                                    [01]
+                                </p>
+                            </div>
+                            <div class="col p-0 h-100" style="max-width: 540px">
+                                <p class="service-container-name">
+                                    Консультация и подбор краски
+                                </p>
+                            </div>
+                            <div class="col p-0 h-100" style="max-width: 20px">
+                                <svg id="service-container-svg-1" class="service-container-svg" width="17" height="10"
+                                     viewBox="0 0 17 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.0296 9.76383L16.798 1.27781C16.9277 1.13622 17 0.948105 17 0.752482C17 0.556861 16.9277 0.368745 16.798 0.227152L16.7892 0.218015C16.7263 0.149136 16.6507 0.0942888 16.5668 0.0568094C16.4829 0.01933 16.3926 1.85425e-06 16.3013 1.84627e-06C16.21 1.83829e-06 16.1197 0.0193299 16.0358 0.0568093C15.9519 0.0942887 15.8763 0.149135 15.8134 0.218015L8.49854 8.20915L1.18661 0.218013C1.12374 0.149134 1.04807 0.0942874 0.96419 0.056808C0.880315 0.0193286 0.78999 4.90225e-07 0.69871 4.82245e-07C0.60743 4.74265e-07 0.517106 0.0193286 0.433228 0.056808C0.349353 0.0942874 0.273679 0.149134 0.210809 0.218013L0.202031 0.22715C0.0723466 0.368743 8.25545e-07 0.556859 8.08444e-07 0.752481C7.91342e-07 0.948103 0.0723465 1.13622 0.202031 1.27781L7.9704 9.76383C8.03872 9.83846 8.12089 9.89787 8.21192 9.93847C8.30296 9.97907 8.40096 10 8.5 10C8.59904 10 8.69705 9.97907 8.78808 9.93847C8.87911 9.89787 8.96128 9.83846 9.0296 9.76383Z"
+                                          fill="#0C0C0C"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div id="service-container-description-1" class="service-container-description">
+                            <p class="service-container-description-text">
+                                Наш отзывчивый персонал всегда готов помочь вам с выбором <br>
+                                краски для вашего проекта, учитывая большое количество <br>
+                                факторов.
+                            </p>
+                        </div>
+
+                        <div class="service-container row p-0 m-0" onclick="advantageDescription2()">
+                            <div class="col p-0 h-100" style="max-width: 200px">
+                                <p class="service-container-number">
+                                    [02]
+                                </p>
+                            </div>
+                            <div class="col p-0 h-100" style="max-width: 540px">
+                                <p class="service-container-name">
+                                    Создание пробников
+                                </p>
+                            </div>
+                            <div class="col p-0 h-100" style="max-width: 20px">
+                                <svg id="service-container-svg-2" class="service-container-svg" width="17" height="10"
+                                     viewBox="0 0 17 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.0296 9.76383L16.798 1.27781C16.9277 1.13622 17 0.948105 17 0.752482C17 0.556861 16.9277 0.368745 16.798 0.227152L16.7892 0.218015C16.7263 0.149136 16.6507 0.0942888 16.5668 0.0568094C16.4829 0.01933 16.3926 1.85425e-06 16.3013 1.84627e-06C16.21 1.83829e-06 16.1197 0.0193299 16.0358 0.0568093C15.9519 0.0942887 15.8763 0.149135 15.8134 0.218015L8.49854 8.20915L1.18661 0.218013C1.12374 0.149134 1.04807 0.0942874 0.96419 0.056808C0.880315 0.0193286 0.78999 4.90225e-07 0.69871 4.82245e-07C0.60743 4.74265e-07 0.517106 0.0193286 0.433228 0.056808C0.349353 0.0942874 0.273679 0.149134 0.210809 0.218013L0.202031 0.22715C0.0723466 0.368743 8.25545e-07 0.556859 8.08444e-07 0.752481C7.91342e-07 0.948103 0.0723465 1.13622 0.202031 1.27781L7.9704 9.76383C8.03872 9.83846 8.12089 9.89787 8.21192 9.93847C8.30296 9.97907 8.40096 10 8.5 10C8.59904 10 8.69705 9.97907 8.78808 9.93847C8.87911 9.89787 8.96128 9.83846 9.0296 9.76383Z"
+                                          fill="#0C0C0C"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div id="service-container-description-2" class="service-container-description">
+                            <p class="service-container-description-text">
+                                Наш отзывчивый персонал всегда готов помочь вам с выбором <br>
+                                краски для вашего проекта, учитывая большое количество <br>
+                                факторов.
+                            </p>
+                        </div>
+
+                        <div class="service-container row p-0 m-0" onclick="advantageDescription3()">
+                            <div class="col p-0 h-100" style="max-width: 200px">
+                                <p class="service-container-number">
+                                    [03]
+                                </p>
+                            </div>
+                            <div class="col p-0 h-100" style="max-width: 540px">
+                                <p class="service-container-name">
+                                    Выезд специалиста на объект
+                                </p>
+                            </div>
+                            <div class="col p-0 h-100" style="max-width: 20px">
+                                <svg id="service-container-svg-3" class="service-container-svg" width="17" height="10"
+                                     viewBox="0 0 17 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.0296 9.76383L16.798 1.27781C16.9277 1.13622 17 0.948105 17 0.752482C17 0.556861 16.9277 0.368745 16.798 0.227152L16.7892 0.218015C16.7263 0.149136 16.6507 0.0942888 16.5668 0.0568094C16.4829 0.01933 16.3926 1.85425e-06 16.3013 1.84627e-06C16.21 1.83829e-06 16.1197 0.0193299 16.0358 0.0568093C15.9519 0.0942887 15.8763 0.149135 15.8134 0.218015L8.49854 8.20915L1.18661 0.218013C1.12374 0.149134 1.04807 0.0942874 0.96419 0.056808C0.880315 0.0193286 0.78999 4.90225e-07 0.69871 4.82245e-07C0.60743 4.74265e-07 0.517106 0.0193286 0.433228 0.056808C0.349353 0.0942874 0.273679 0.149134 0.210809 0.218013L0.202031 0.22715C0.0723466 0.368743 8.25545e-07 0.556859 8.08444e-07 0.752481C7.91342e-07 0.948103 0.0723465 1.13622 0.202031 1.27781L7.9704 9.76383C8.03872 9.83846 8.12089 9.89787 8.21192 9.93847C8.30296 9.97907 8.40096 10 8.5 10C8.59904 10 8.69705 9.97907 8.78808 9.93847C8.87911 9.89787 8.96128 9.83846 9.0296 9.76383Z"
+                                          fill="#0C0C0C"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div id="service-container-description-3" class="service-container-description">
+                            <p class="service-container-description-text">
+                                Наш отзывчивый персонал всегда готов помочь вам с выбором <br>
+                                краски для вашего проекта, учитывая большое количество <br>
+                                факторов.
+                            </p>
+                        </div>
+
+                        <div class="service-container row p-0 m-0" onclick="advantageDescription4()">
+                            <div class="col p-0 h-100" style="max-width: 200px">
+                                <p class="service-container-number">
+                                    [04]
+                                </p>
+                            </div>
+                            <div class="col p-0 h-100" style="max-width: 540px">
+                                <p class="service-container-name">
+                                    Колеровка краски
+                                </p>
+                            </div>
+                            <div class="col p-0 h-100" style="max-width: 20px">
+                                <svg id="service-container-svg-4" class="service-container-svg" width="17" height="10"
+                                     viewBox="0 0 17 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.0296 9.76383L16.798 1.27781C16.9277 1.13622 17 0.948105 17 0.752482C17 0.556861 16.9277 0.368745 16.798 0.227152L16.7892 0.218015C16.7263 0.149136 16.6507 0.0942888 16.5668 0.0568094C16.4829 0.01933 16.3926 1.85425e-06 16.3013 1.84627e-06C16.21 1.83829e-06 16.1197 0.0193299 16.0358 0.0568093C15.9519 0.0942887 15.8763 0.149135 15.8134 0.218015L8.49854 8.20915L1.18661 0.218013C1.12374 0.149134 1.04807 0.0942874 0.96419 0.056808C0.880315 0.0193286 0.78999 4.90225e-07 0.69871 4.82245e-07C0.60743 4.74265e-07 0.517106 0.0193286 0.433228 0.056808C0.349353 0.0942874 0.273679 0.149134 0.210809 0.218013L0.202031 0.22715C0.0723466 0.368743 8.25545e-07 0.556859 8.08444e-07 0.752481C7.91342e-07 0.948103 0.0723465 1.13622 0.202031 1.27781L7.9704 9.76383C8.03872 9.83846 8.12089 9.89787 8.21192 9.93847C8.30296 9.97907 8.40096 10 8.5 10C8.59904 10 8.69705 9.97907 8.78808 9.93847C8.87911 9.89787 8.96128 9.83846 9.0296 9.76383Z"
+                                          fill="#0C0C0C"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div id="service-container-description-4" class="service-container-description">
+                            <p class="service-container-description-text">
+                                Наш отзывчивый персонал всегда готов помочь вам с выбором <br>
+                                краски для вашего проекта, учитывая большое количество <br>
+                                факторов.
+                            </p>
+                        </div>
+
+                        <div class="service-container row p-0 m-0" onclick="advantageDescription5()"
+                             style="border-bottom: 1px solid #949599">
+                            <div class="col p-0 h-100" style="max-width: 200px">
+                                <p class="service-container-number">
+                                    [05]
+                                </p>
+                            </div>
+                            <div class="col p-0 h-100" style="max-width: 540px">
+                                <p class="service-container-name">
+                                    Поставка краски
+                                </p>
+                            </div>
+                            <div class="col p-0 h-100" style="max-width: 20px">
+                                <svg id="service-container-svg-5" class="service-container-svg" width="17" height="10"
+                                     viewBox="0 0 17 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.0296 9.76383L16.798 1.27781C16.9277 1.13622 17 0.948105 17 0.752482C17 0.556861 16.9277 0.368745 16.798 0.227152L16.7892 0.218015C16.7263 0.149136 16.6507 0.0942888 16.5668 0.0568094C16.4829 0.01933 16.3926 1.85425e-06 16.3013 1.84627e-06C16.21 1.83829e-06 16.1197 0.0193299 16.0358 0.0568093C15.9519 0.0942887 15.8763 0.149135 15.8134 0.218015L8.49854 8.20915L1.18661 0.218013C1.12374 0.149134 1.04807 0.0942874 0.96419 0.056808C0.880315 0.0193286 0.78999 4.90225e-07 0.69871 4.82245e-07C0.60743 4.74265e-07 0.517106 0.0193286 0.433228 0.056808C0.349353 0.0942874 0.273679 0.149134 0.210809 0.218013L0.202031 0.22715C0.0723466 0.368743 8.25545e-07 0.556859 8.08444e-07 0.752481C7.91342e-07 0.948103 0.0723465 1.13622 0.202031 1.27781L7.9704 9.76383C8.03872 9.83846 8.12089 9.89787 8.21192 9.93847C8.30296 9.97907 8.40096 10 8.5 10C8.59904 10 8.69705 9.97907 8.78808 9.93847C8.87911 9.89787 8.96128 9.83846 9.0296 9.76383Z"
+                                          fill="#0C0C0C"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div id="service-container-description-5" class="service-container-description"
+                             style="border-top: 0 !important; border-bottom: 1px solid #949599">
+                            <p class="service-container-description-text">
+                                Наш отзывчивый персонал всегда готов помочь вам с выбором <br>
+                                краски для вашего проекта, учитывая большое количество <br>
+                                факторов.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="block-name-container mx-auto" style="padding-bottom: 86.5px">
+            <p class="m-0">
+                Поставщики
+            </p>
+        </div>
+
+        <div class="providers-container container-fluid row mx-0 px-0" style="margin-bottom: 110px">
+            <div class="content-row row p-0 mx-auto">
+                <div class="row p-0 m-0">
+                    <div class="col p-0 h-100" style="max-width: 85px">
+                        <div class="container p-0 h-100 d-flex justify-content-start">
+                            <p class="provider-container-name">
+                                ID
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col p-0 h-100" style="max-width: 1020px">
+                        <div class="container p-0 h-100">
+                            <div class="provider-container-line">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col p-0 h-100" style="max-width: 55px">
+                        <div class="container p-0 h-100 d-flex justify-content-end">
+                            <p class="provider-container-number">
+                                [01]
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col p-0 h-100" style="max-width: 760px; margin-top: 23.5px">
+                    <div class="container p-0 h-100">
+                        <img src="{{ asset('build/images/provider_id_img.png') }}">
+                    </div>
+                </div>
+                <div class="col p-0 h-100" style="max-width: 400px; margin-left: 40px; margin-top: 23.5px">
+                    <div class="container p-0 h-100">
+                        <p class="provider-container-small-text">
+                            Известная фирма, специализирующаяся на производстве высококачественных красок и лаков.
+                        </p>
+
+                        <button class="provider-more-button container">
+                            Подробнее
+                            <svg class="third-column-button-svg" width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10.6218 7.6395L5.04876 2.3295C4.95577 2.24086 4.83223 2.19141 4.70376 2.19141C4.57528 2.19141 4.45174 2.24086 4.35876 2.3295L4.35276 2.3355C4.30752 2.37847 4.2715 2.4302 4.24689 2.48753C4.22227 2.54487 4.20958 2.60661 4.20958 2.669C4.20958 2.73139 4.22227 2.79314 4.24689 2.85047C4.2715 2.9078 4.30752 2.95953 4.35276 3.0025L9.60076 8.0025L4.35276 13.0005C4.30752 13.0435 4.2715 13.0952 4.24689 13.1525C4.22227 13.2099 4.20958 13.2716 4.20958 13.334C4.20958 13.3964 4.22227 13.4581 4.24689 13.5155C4.2715 13.5728 4.30752 13.6245 4.35276 13.6675L4.35876 13.6735C4.45174 13.7621 4.57528 13.8116 4.70376 13.8116C4.83223 13.8116 4.95577 13.7621 5.04876 13.6735L10.6218 8.3635C10.6708 8.3168 10.7098 8.26064 10.7364 8.19841C10.7631 8.13619 10.7769 8.0692 10.7769 8.0015C10.7769 7.9338 10.7631 7.86681 10.7364 7.80459C10.7098 7.74236 10.6708 7.6862 10.6218 7.6395Z"
+                                      fill="#0C0C0C"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="provider-bottom-margin content-row row p-0 mx-auto">
+                <div class="row p-0 m-0">
+                    <div class="col p-0 h-100" style="max-width: 55px">
+                        <div class="container p-0 h-100 d-flex justify-content-start">
+                            <p class="provider-container-number">
+                                [02]
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col p-0 h-100" style="max-width: 830px">
+                        <div class="container p-0 h-100">
+                            <div class="provider-container-line">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col p-0 h-100" style="max-width: 275px">
+                        <div class="container p-0 h-100 d-flex justify-content-end">
+                            <p class="provider-container-name">
+                                PARITET
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col p-0 h-100" style="max-width: 400px; margin-right: 40px; margin-top: 23.5px">
+                    <div class="container p-0 h-100">
+                        <p class="provider-container-small-text">
+                            Это прочно установившаяся фирма, которая занимается производством и продажей красок для
+                            разных целей и поверхностей.
+                        </p>
+
+                        <button class="provider-more-button container">
+                            Подробнее
+                            <svg class="third-column-button-svg" width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10.6218 7.6395L5.04876 2.3295C4.95577 2.24086 4.83223 2.19141 4.70376 2.19141C4.57528 2.19141 4.45174 2.24086 4.35876 2.3295L4.35276 2.3355C4.30752 2.37847 4.2715 2.4302 4.24689 2.48753C4.22227 2.54487 4.20958 2.60661 4.20958 2.669C4.20958 2.73139 4.22227 2.79314 4.24689 2.85047C4.2715 2.9078 4.30752 2.95953 4.35276 3.0025L9.60076 8.0025L4.35276 13.0005C4.30752 13.0435 4.2715 13.0952 4.24689 13.1525C4.22227 13.2099 4.20958 13.2716 4.20958 13.334C4.20958 13.3964 4.22227 13.4581 4.24689 13.5155C4.2715 13.5728 4.30752 13.6245 4.35276 13.6675L4.35876 13.6735C4.45174 13.7621 4.57528 13.8116 4.70376 13.8116C4.83223 13.8116 4.95577 13.7621 5.04876 13.6735L10.6218 8.3635C10.6708 8.3168 10.7098 8.26064 10.7364 8.19841C10.7631 8.13619 10.7769 8.0692 10.7769 8.0015C10.7769 7.9338 10.7631 7.86681 10.7364 7.80459C10.7098 7.74236 10.6708 7.6862 10.6218 7.6395Z"
+                                      fill="#0C0C0C"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col p-0 h-100" style="max-width: 360px; margin-top: 23.5px">
+                    <div class="container p-0 h-100">
+                        <img class="img-fluid" src="{{ asset('build/images/provider_paritet_first_img.png') }}">
+                    </div>
+                </div>
+
+                <div class="col p-0 h-100" style="max-width: 400px; margin-left: 40px; margin-top: 23.5px">
+                    <div class="container p-0 h-100">
+                        <img class="img-fluid" src="{{ asset('build/images/provider_paritet_second_img.png') }}">
+                    </div>
+                </div>
+            </div>
+
+            <div class="provider-bottom-margin content-row row p-0 mx-auto">
+                <div class="row p-0 m-0">
+                    <div class="col p-0 h-100" style="max-width: 225px">
+                        <div class="container p-0 h-100 d-flex justify-content-start">
+                            <p class="provider-container-name">
+                                STÖLZ
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col p-0 h-100" style="max-width: 880px">
+                        <div class="container p-0 h-100">
+                            <div class="provider-container-line">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col p-0 h-100" style="max-width: 55px">
+                        <div class="container p-0 h-100 d-flex justify-content-end">
+                            <p class="provider-container-number">
+                                [03]
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col p-0 h-100" style="max-width: 760px; margin-top: 23.5px">
+                    <div class="container p-0 h-100">
+                        <img src="{{ asset('build/images/provider_stolz_img.png') }}">
+                    </div>
+                </div>
+                <div class="col p-0 h-100" style="max-width: 400px; margin-left: 40px; margin-top: 23.5px">
+                    <div class="container p-0 h-100">
+                        <p class="provider-container-small-text">
+                            Известный производитель красок и покрытий, специализирующийся на инновационных и
+                            экологически чистых продуктах.
+                        </p>
+
+                        <button class="provider-more-button container">
+                            Подробнее
+                            <svg class="third-column-button-svg" width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10.6218 7.6395L5.04876 2.3295C4.95577 2.24086 4.83223 2.19141 4.70376 2.19141C4.57528 2.19141 4.45174 2.24086 4.35876 2.3295L4.35276 2.3355C4.30752 2.37847 4.2715 2.4302 4.24689 2.48753C4.22227 2.54487 4.20958 2.60661 4.20958 2.669C4.20958 2.73139 4.22227 2.79314 4.24689 2.85047C4.2715 2.9078 4.30752 2.95953 4.35276 3.0025L9.60076 8.0025L4.35276 13.0005C4.30752 13.0435 4.2715 13.0952 4.24689 13.1525C4.22227 13.2099 4.20958 13.2716 4.20958 13.334C4.20958 13.3964 4.22227 13.4581 4.24689 13.5155C4.2715 13.5728 4.30752 13.6245 4.35276 13.6675L4.35876 13.6735C4.45174 13.7621 4.57528 13.8116 4.70376 13.8116C4.83223 13.8116 4.95577 13.7621 5.04876 13.6735L10.6218 8.3635C10.6708 8.3168 10.7098 8.26064 10.7364 8.19841C10.7631 8.13619 10.7769 8.0692 10.7769 8.0015C10.7769 7.9338 10.7631 7.86681 10.7364 7.80459C10.7098 7.74236 10.6708 7.6862 10.6218 7.6395Z"
+                                      fill="#0C0C0C"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid row mx-0 px-0">
+            <div class="form-background">
+                <div class="form-container container content-row row p-0 mx-auto">
+                    <div class="p-0 col h-100" style="max-width: 600px; margin-right: 40px">
+                        <div class="container h-100 p-0">
+                            <p class="form-big-text">
+                                Идеальная краска ждёт!
+                            </p>
+                            <p class="form-small-text">
+                                Оставьте свой номер и мы поможем вам выбрать краску, идеально подходящую для вашей задачи!
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="p-0 col h-100" style="max-width: 560px; margin: 0 60px 0 60px">
+                        <div class="container h-100 p-0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% include 'footer.html.twig' %}
+
+    </div>
+
+    <script>
+
+        function hoverOnPaint() {
+            document.getElementById("nav-about").classList.add("active")
+            document.getElementById("about-dropdown-svg").classList.add("active")
+        }
+
+        function hoverOffPaint() {
+            document.getElementById("nav-about").classList.remove("active")
+            document.getElementById("about-dropdown-svg").classList.remove("active")
+        }
+
+        function hoverOnAbout() {
+            document.getElementById("nav-paint").classList.add("active")
+            document.getElementById("paint-dropdown-svg").classList.add("active")
+        }
+
+        function hoverOffAbout() {
+            document.getElementById("nav-paint").classList.remove("active")
+            document.getElementById("paint-dropdown-svg").classList.remove("active")
+
+        }
+
+        function advantageDescription1() {
+
+            if (document.getElementById("service-container-description-1").style.display === "block") {
+                document.getElementById("service-container-description-1").style.display = "none";
+                document.getElementById("service-container-svg-1").classList.remove("active");
+            } else {
+                document.getElementById("service-container-description-1").style.display = "block";
+                document.getElementById("service-container-svg-1").classList.add("active");
+            }
+        }
+
+        function advantageDescription2() {
+
+            if (document.getElementById("service-container-description-2").style.display === "block") {
+                document.getElementById("service-container-description-2").style.display = "none";
+                document.getElementById("service-container-svg-2").classList.remove("active");
+            } else {
+                document.getElementById("service-container-description-2").style.display = "block";
+                document.getElementById("service-container-svg-2").classList.add("active");
+            }
+        }
+
+        function advantageDescription3() {
+
+            if (document.getElementById("service-container-description-3").style.display === "block") {
+                document.getElementById("service-container-description-3").style.display = "none";
+                document.getElementById("service-container-svg-3").classList.remove("active");
+            } else {
+                document.getElementById("service-container-description-3").style.display = "block";
+                document.getElementById("service-container-svg-3").classList.add("active");
+            }
+        }
+
+        function advantageDescription4() {
+
+            if (document.getElementById("service-container-description-4").style.display === "block") {
+                document.getElementById("service-container-description-4").style.display = "none";
+                document.getElementById("service-container-svg-4").classList.remove("active");
+            } else {
+                document.getElementById("service-container-description-4").style.display = "block";
+                document.getElementById("service-container-svg-4").classList.add("active");
+            }
+        }
+
+        function advantageDescription5() {
+
+            if (document.getElementById("service-container-description-5").style.display === "block") {
+                document.getElementById("service-container-description-5").style.display = "none";
+                document.getElementById("service-container-svg-5").classList.remove("active");
+            } else {
+                document.getElementById("service-container-description-5").style.display = "block";
+                document.getElementById("service-container-svg-5").classList.add("active");
+            }
+        }
+
+    </script>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+@font-face {
+    font-family: 'Manrope-Bold';
+    font-style: normal;
+    font-weight: 400;
+    src: url('fonts/Manrope-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Manrope-Medium';
+    font-style: normal;
+    font-weight: 400;
+    src: url('fonts/Manrope-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'Manrope-Regular';
+    font-style: normal;
+    font-weight: 400;
+    src: url('fonts/Manrope-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Manrope-Light';
+    font-style: normal;
+    font-weight: 400;
+    src: url('fonts/Manrope-Light.ttf');
+}
+
+@font-face {
+    font-family: 'Manrope-SemiBold';
+    font-style: normal;
+    font-weight: 400;
+    src: url('fonts/Manrope-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: 'Manrope-ExtraBold';
+    font-style: normal;
+    font-weight: 400;
+    src: url('fonts/Manrope-ExtraBold.ttf');
+}
